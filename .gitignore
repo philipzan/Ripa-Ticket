@@ -2,3 +2,5 @@
 ssl/
 .env
 .vscode
+frontend/server.js
+/frontend/server.js
