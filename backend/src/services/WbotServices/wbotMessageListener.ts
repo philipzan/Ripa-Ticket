@@ -189,7 +189,7 @@ const verifyQueue = async (
 
         if ((hora < horainicio) || (hora > horatermino)) {
 
-            const body = formatBody(`\u200e${choosenQueue.absenceMessage}`, ticket);
+            const body = formatBody(`\u200f${choosenQueue.absenceMessage}`, ticket);
             const debouncedSentMessage = debounce(
                 async () => {
                     const sentMessage = await wbot.sendMessage(`${contact.number}@c.us`, body);
@@ -211,7 +211,7 @@ const verifyQueue = async (
             await chat.sendStateTyping();
 
             const body = formatBody(
-                `\u200e${choosenQueue.greetingMessage}`,
+                `\u200f${choosenQueue.greetingMessage}`,
                 ticket
             );
 
@@ -226,11 +226,11 @@ const verifyQueue = async (
         await chat.sendStateTyping();
 
         queues.forEach((queue, index) => {
-            options += `*${index + 1}* - ${queue.name} das ${queue.startWork} as ${queue.endWork}\n`;
+            options += `*${index + 1}* - ${queue.name}\n`;
         });
 
         const body = formatBody(
-            `\u200e${greetingMessage}\n\n${options}`,
+            `\u200f${greetingMessage}\n\n${options}`,
             ticket
         );
 
