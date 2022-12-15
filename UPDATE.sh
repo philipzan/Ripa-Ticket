@@ -35,9 +35,9 @@ echo " "
 
 sleep 2
 
-sudo rm -rf node_modules
+rm -rf node_modules
 npm install
-sudo rm -rf dist
+rm -rf dist
 npm run build
 
 echo " "
@@ -81,7 +81,7 @@ echo " "
 
 sleep 2
 
-sudo rm -rf node_modules
+rm -rf node_modules
 npm install
 rm -rf build
 npm run build
