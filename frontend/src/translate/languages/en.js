@@ -33,6 +33,21 @@ const messages = {
           success: "Login was successful!",
         },
       },
+      messageVariablesPicker: {
+        label: "Available variables",
+        vars: {
+          contactName: "Name",
+          user: "Attendant",
+          greeting: "Greeting",
+          protocolNumber: "Protocol",
+          date: "Date",
+          hour: "Hour",
+          date_hour: "Date and Time",
+          ticket_id: "Ticked ID",
+          queue: "Sector",
+          connection: "Connection"
+        }
+      },
       dashboard: {
         charts: {
           perDay: {
@@ -457,6 +472,14 @@ const messages = {
           userCreation: {
             name: "Creating Attendant",
             note: "Allow attendant creation",
+            options: {
+              enabled: "Enabled",
+              disabled: "Disabled",
+            },
+          },
+          allTicket: {
+            name: "Everyone can see the ticket without department",
+            note: "Activate this function to let all users see tickets without sector",
             options: {
               enabled: "Enabled",
               disabled: "Disabled",
