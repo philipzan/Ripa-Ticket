@@ -7,7 +7,6 @@ import Message from "../../models/Message";
 import Queue from "../../models/Queue";
 import Whatsapp from "../../models/Whatsapp";
 import ShowUserService from "../UserServices/ShowUserService";
-import ListSettingsServiceOne from "../SettingServices/ListSettingsServiceOne";
 
 interface Request {
   searchParam?: string;
@@ -46,8 +45,8 @@ const ListTicketsService = async ({
     {
       model: Contact,
       as: "contact",
-      attributes: ["id", "name", "number", "profilePicUrl"]
-      // include: ["extraInfo", "contactTags", "tags"]
+      attributes: ["id", "name", "number", "profilePicUrl"],
+      include: ["extraInfo", "contactTags", "tags"]
     },
     {
       model: Queue,
@@ -134,18 +133,8 @@ const ListTicketsService = async ({
     };
   }
 
-  const limit = 100;
+  const limit = 999;
   const offset = limit * (+pageNumber - 1);
-
-  const listSettingsService = await ListSettingsServiceOne({ key: "ASC" });
-  let settingASC = listSettingsService?.value;
-
-  settingASC = settingASC === "enabled" ? "ASC" : "DESC";
-
-  const listSettingsService2 = await ListSettingsServiceOne({ key: "created" });
-  let settingCreated = listSettingsService2?.value;
-
-  settingCreated = settingCreated === "enabled" ? "createdAt" : "updatedAt";
 
   const { count, rows: tickets } = await Ticket.findAndCountAll({
     where: whereCondition,
@@ -153,7 +142,7 @@ const ListTicketsService = async ({
     distinct: true,
     limit,
     offset,
-    order: [[settingCreated, settingASC]]
+    order: [["updatedAt", "DESC"]]
   });
 
   const hasMore = count > offset + tickets.length;

@@ -2,12 +2,6 @@ import React, { useEffect, useReducer, useState } from "react";
 
 import openSocket from "../../services/socket-io";
 
-import { 
-  AddCircleOutline, 
-  DeleteOutline, 
-  Edit 
-} from "@material-ui/icons";
-
 import {
   Button,
   IconButton,
@@ -19,21 +13,20 @@ import {
   TableHead,
   TableRow,
   Typography,
-  Tooltip
 } from "@material-ui/core";
 
-import ConfirmationModal from "../../components/ConfirmationModal";
 import MainContainer from "../../components/MainContainer";
 import MainHeader from "../../components/MainHeader";
 import MainHeaderButtonsWrapper from "../../components/MainHeaderButtonsWrapper";
-import QueueModal from "../../components/QueueModal";
 import TableRowSkeleton from "../../components/TableRowSkeleton";
 import Title from "../../components/Title";
-
 import { i18n } from "../../translate/i18n";
 import toastError from "../../errors/toastError";
 import api from "../../services/api";
+import { DeleteOutline, Edit } from "@material-ui/icons";
+import QueueModal from "../../components/QueueModal";
 import { toast } from "react-toastify";
+import ConfirmationModal from "../../components/ConfirmationModal";
 
 const useStyles = makeStyles((theme) => ({
   mainPaper: {
@@ -187,26 +180,21 @@ const Queues = () => {
         queueId={selectedQueue?.id}
       />
       <MainHeader>
-        <Title>{i18n.t("queues.title")} ({queues.length})</Title>
+        <Title>{i18n.t("queues.title")}</Title>
         <MainHeaderButtonsWrapper>
-        <Tooltip title={i18n.t("queues.buttons.add")}>
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleOpenQueueModal}
-            >
-              <AddCircleOutline />
-            </Button>
-          </Tooltip>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleOpenQueueModal}
+          >
+            {i18n.t("queues.buttons.add")}
+          </Button>
         </MainHeaderButtonsWrapper>
       </MainHeader>
       <Paper className={classes.mainPaper} variant="outlined">
         <Table size="small">
           <TableHead>
             <TableRow>
-              <TableCell align="center">
-                {i18n.t("queues.table.id")}
-              </TableCell>
               <TableCell align="center">
                 {i18n.t("queues.table.name")}
               </TableCell>
@@ -231,7 +219,6 @@ const Queues = () => {
             <>
               {queues.map((queue) => (
                 <TableRow key={queue.id}>
-                  <TableCell align="center">{queue.id}</TableCell>
                   <TableCell align="center">{queue.name}</TableCell>
                   <TableCell align="center">
                     <div className={classes.customTableCell}>

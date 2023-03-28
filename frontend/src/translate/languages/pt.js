@@ -386,10 +386,6 @@ const messages = {
           token: "Token"
         },
         appBar: {
-          message: {
-            hi: "Olá",
-            text: "seja bem vindo ao Sistema"
-          },
           user: {
             profile: "Perfil",
             logout: "Sair",
@@ -405,7 +401,6 @@ const messages = {
           queueDeleted: "O setor foi deletado.",
         },
         table: {
-          id: "ID",
           name: "Nome",
           color: "Cor",
           greeting: "Mensagem de saudação",
@@ -450,7 +445,6 @@ const messages = {
       users: {
         title: "Atendentes",
         table: {
-          id: "ID",
           name: "Nome",
           email: "E-mail",
           profile: "Perfil",
@@ -530,22 +524,6 @@ const messages = {
               disabled: "Desativado",
             },
           },
-          ASC: {
-            name: "Ordenação dos Tickets (ASC ou DESC)",
-            note: "Ao ativar irá ordenar ascendente (ASC), desativando ordenará decrescente (DESC)",
-            options: {
-              enabled: "Ativado",
-              disabled: "Desativado",
-            },
-          },
-          created: {
-            name: "Ordenação dos Tickets (createdAt ou updateAt)",
-            note: "Ao ativar irá ordenar pela data de criação (createdAt), desativando ordenará pela data de atualização (updateAt)",
-            options: {
-              enabled: "Ativado",
-              disabled: "Desativado",
-            },
-          },
           timeCreateNewTicket: {
             name: "Cria novo ticket após",
             note: "Selecione o tempo que será necessário para abrir um novo ticket, caso o cliente entre em contatos novamente",
@@ -573,7 +551,7 @@ const messages = {
           buttons: {
             return: "Retornar",
             resolve: "Resolver",
-            reopen: "Reabrir",
+            reopen: "Reabrir", 
             accept: "Aceitar",
           },
         },
@@ -591,7 +569,7 @@ const messages = {
         extraInfo: "Outras informações",
       },
       copyToClipboard: {
-        copy: "Copiar",
+        copy:"Copiar",
         copied: "Copiado"
       },
       ticketOptionsMenu: {
