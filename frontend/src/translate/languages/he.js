@@ -286,6 +286,10 @@ const messages = {
             settings: "הגדרות",
           },
           appBar: {
+          message: {
+            hi: "שלום",
+            text: "ברוך הבא למערכת"
+          },
             user: {
               profile: "פרופיל",
               logout: "התנתק",
