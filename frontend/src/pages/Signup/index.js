@@ -37,7 +37,7 @@ const Copyright = () => {
 			© {new Date().getFullYear()}
 			{" - "}
 			<Link color="inherit" href={system.url || ""}>
-				{system.name || "AdProWMA"}
+				{system.name || "RIPA-WMA"}
 			</Link>
 			{"."}
 		</Typography>
